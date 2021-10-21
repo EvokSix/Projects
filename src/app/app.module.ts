@@ -1,4 +1,4 @@
-import { CadastroComponent } from './cadastro/cadastro.component';
+import { CadastroComponent } from '../cadastro/cadastro.component';
 import { LoginComponent } from './../login/login.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
