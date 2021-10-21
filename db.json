@@ -2,8 +2,8 @@
   "usuarios": [
     {
       "id": 1,
-      "nome": "julio",
-      "senha": "123456"
+      "email": "ferreira@gmail.com",
+      "senha": "123"
     }
   ]
 }

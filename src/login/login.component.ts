@@ -23,12 +23,12 @@ entrada!: FormGroup;
   }
 
   login() : void {
-    if(this.email == 'ferreira@gmail.com' && this.password == '123'){
-     //this.router.navigate(["app-root"]);
-     alert(this.entrada.get(this.password));
+    if(this.entrada.get("email")?.value == 'ferreira@gmail.com' && this.entrada.get("password")?.value == '123'){
+     this.router.navigate(["telaInicial"]);
+     //alert("Entrou ulala!");
 
     }else {
-      alert("Email ou senha inválida"+" "+this.entrada.value+" "+this.password);
+      alert("Email ou senha inválida");
     }
   }
   }

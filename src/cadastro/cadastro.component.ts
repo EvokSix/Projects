@@ -26,7 +26,8 @@ export class CadastroComponent implements OnInit {
   cadastrar(): void {
     if (this.cadastro.valid) {
       //this.router.navigate(["app-root"]);
-      alert('Entrou');
+      alert("Cadastro efetuado com sucesso");
+      this.router.navigate([""]);
     } else {
       alert('Não Entrou');
     }

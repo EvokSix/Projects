@@ -1,3 +1,4 @@
+import { TelaInicialComponent } from './../telaInicial/telaInicial.component';
 import { CadastroComponent } from '../cadastro/cadastro.component';
 import { LoginComponent } from './../login/login.component';
 import { NgModule } from '@angular/core';
@@ -12,7 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     LoginComponent,
-    CadastroComponent
+    CadastroComponent,
+    TelaInicialComponent
   ],
   imports: [
     BrowserModule,
