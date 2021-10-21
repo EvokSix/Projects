@@ -1,4 +1,4 @@
-.formulario-Login{
+.formulario-Cadastro{
   width: 20%;
   margin: 15% 0 0 40%;
   text-align: center;
@@ -12,3 +12,7 @@
   font-size: 35px;
   color:aqua;
 }
+
+.btCancelaCadastro{
+  padding: 2%;
+  }

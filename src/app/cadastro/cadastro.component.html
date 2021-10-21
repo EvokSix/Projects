@@ -1,0 +1,65 @@
+<div class="formulario-Cadastro">
+  <mat-card>
+    <mat-card-title class="cb">Criar conta</mat-card-title>
+    <form [formGroup]="cadastro" (ngSubmit)="cadastrar()">
+      <div>
+        <mat-form-field class="input">
+          <input
+            matInput
+            type="email"
+            class="email"
+            placeholder="Email"
+            autocomplete="off"
+            formControlName="email"
+            required
+          />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="input">
+          <input
+            matInput
+            type="password"
+            class="password"
+            placeholder="Password"
+            autocomplete="off"
+            formControlName="password"
+            required
+          />
+        </mat-form-field>
+        </div>
+        <div>
+        <mat-form-field class="input">
+          <input
+            matInput
+            readonly
+            [matDatepicker]="picker"
+            placeholder="Data Nascimento"
+            formControlName="dataNascimento"
+            (click)="picker.open()"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="btCriaCadastro">
+        <button
+          mat-flat-button
+          color="primary"
+          type="submit"
+          [disabled]="!cadastro.valid"
+        >
+          Criar cadastro
+        </button>
+        <div class="btCancelaCadastro">
+          <button mat-stroked-button type="button" routerLink="/login">
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </form>
+  </mat-card>
+</div>

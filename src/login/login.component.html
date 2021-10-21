@@ -1,21 +1,49 @@
-  <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
-    <mat-card>
-    <mat-card-title>Entre com sua conta</mat-card-title>
-   <form [formGroup] = "entrada" (ngSubmit)="login()">
-      <mat-form-field>
-      <input matInput type="email" id="email" placeholder="Email" autocomplete="off" formControlName="email" required>
-    </mat-form-field>
-    <h1></h1>
-      <mat-form-field>
-      <input matInput type="password" id="password" placeholder="Password" autocomplete="off" formControlName="password" required>
-    </mat-form-field>
-      <div class="actions">
-      <button mat-flat-button color="primary" type="submit" (click)="login()" [disabled]="!entrada.valid">Entrar</button>
+<div class="formulario-Login">
+  <mat-card>
+    <mat-card-title class="cb" >Entre com sua conta</mat-card-title>
+    <form [formGroup]="entrada" (ngSubmit)="login()">
       <div>
-        <span>ou</span>
+        <mat-form-field class="input">
+          <input
+            matInput
+            type="email"
+            class="email"
+            placeholder="Email"
+            autocomplete="off"
+            formControlName="email"
+            required
+          />
+        </mat-form-field>
       </div>
-      <button mat-stroked-button type="button" routerLink="/signup">Cadastrar</button>
-    </div>
-</form>
-</mat-card>
+      <div>
+        <mat-form-field class="input">
+          <input
+            matInput
+            type="password"
+            class="password"
+            placeholder="Password"
+            autocomplete="off"
+            formControlName="password"
+            required
+          />
+        </mat-form-field>
+      </div>
+      <div class="actions">
+        <button
+          mat-flat-button
+          color="primary"
+          type="submit"
+          [disabled]="!entrada.valid"
+        >
+          Entre
+        </button>
+        <div>
+          <span>ou</span>
+        </div>
+        <button mat-stroked-button type="button" routerLink="/cadastro">
+          Cadastre-se
+        </button>
+      </div>
+    </form>
+  </mat-card>
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators,ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Router} from '@angular/router';
 
 @Component({
@@ -24,9 +24,11 @@ entrada!: FormGroup;
 
   login() : void {
     if(this.email == 'ferreira@gmail.com' && this.password == '123'){
-     this.router.navigate(["app-root"]);
+     //this.router.navigate(["app-root"]);
+     alert(this.entrada.get(this.password));
+
     }else {
-      alert("Email ou senha inválida");
+      alert("Email ou senha inválida"+" "+this.entrada.value+" "+this.password);
     }
   }
   }
