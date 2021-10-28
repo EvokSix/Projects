@@ -1,7 +1,11 @@
+import { ListaCadastrosService } from './../app/core/lista-cadastros.service';
+import { ListaCadastros } from './../app/shared/models/lista-cadastros';
 import { ValidarCamposService } from './../shared/componentes/campos/validar-campo.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { AlertaComponent } from 'src/shared/componentes/alerta.component';
 
 @Component({
   selector: 'app-cadastro',
@@ -10,18 +14,25 @@ import { Router } from '@angular/router';
 })
 
 export class CadastroComponent implements OnInit {
-  constructor(private router: Router, private fb: FormBuilder,public validacao: ValidarCamposService) {}
+
+  constructor(public validacao: ValidarCamposService,
+              public dialog: MatDialog,
+              private router: Router,
+              private fb: FormBuilder,
+              private cadastroService: ListaCadastrosService) {}
 
   password!: string;
+  confirmaPassword!: string;
   email!: string;
-  dataNascimento!: string;
+  dtNascimento!: string;
   cadastro!: FormGroup;
 
   ngOnInit(): void {
     this.cadastro = this.fb.group({
       email: ['', Validators.email],
       password: [''],
-      dataNascimento: [''],
+      confirmaPassword: [''],
+      dtNascimento: ['']
     });
   }
 
@@ -29,13 +40,25 @@ export class CadastroComponent implements OnInit {
     return this.cadastro.controls;
   }
 
-  cadastrar(): void {
+  submit(): void {
     if (this.cadastro.valid) {
       //this.router.navigate(["app-root"]);
-      alert("Cadastro efetuado com sucesso");
-      this.router.navigate([""]);
+      const dialogRef = this.dialog.open(AlertaComponent);
+      //this.router.navigate([""]);
+      //const cadastro = this.cadastro.getRawValue() as ListaCadastros;
+      //this.salvar(cadastro);
     } else {
       alert('Erro ao cadastrar');
     }
   }
+
+  private salvar(cadastro: ListaCadastros): void{
+      this.cadastroService.salvar(cadastro).subscribe(() =>{
+        alert('SUCESSO');
+      },
+      () => {
+        alert('ERRO AO SALVAR');
+  });
+  }
+
 }

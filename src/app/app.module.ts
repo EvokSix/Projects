@@ -8,13 +8,17 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DemoMaterialModule } from '../shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { AlertaComponent } from 'src/shared/componentes/alerta.component';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     CadastroComponent,
-    TelaInicialComponent
+    TelaInicialComponent,
+    AlertaComponent
   ],
   imports: [
     BrowserModule,
@@ -22,9 +26,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     DemoMaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  entryComponents: [AlertaComponent],
+  providers: [{provide: MAT_DATE_LOCALE, useValue: 'pt'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
