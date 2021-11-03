@@ -1,6 +1,6 @@
 export interface ListaCadastros {
 
-  id?: number;
+  id: number;
   email: string;
   password: string;
   dtNascimento: Date;

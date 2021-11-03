@@ -1,11 +1,12 @@
+import { Alerta } from './../app/shared/models/alerta';
 import { ListaCadastrosService } from './../app/core/lista-cadastros.service';
 import { ListaCadastros } from './../app/shared/models/lista-cadastros';
-import { ValidarCamposService } from './../shared/componentes/campos/validar-campo.service';
+import { ValidarCamposService } from '../app/shared/componentes/campos/validar-campo.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { AlertaComponent } from 'src/shared/componentes/alerta.component';
+import { AlertaComponent } from 'src/app/shared/componentes/alerta.component';
 
 @Component({
   selector: 'app-cadastro',
@@ -42,11 +43,17 @@ export class CadastroComponent implements OnInit {
 
   submit(): void {
     if (this.cadastro.valid) {
-      //this.router.navigate(["app-root"]);
-      const dialogRef = this.dialog.open(AlertaComponent);
-      //this.router.navigate([""]);
-      //const cadastro = this.cadastro.getRawValue() as ListaCadastros;
-      //this.salvar(cadastro);
+      const config = {
+      data: {
+          btnSucesso: 'Ir para a listagem',
+          btnCancelar: 'Cadastrar um novo usuario',
+          possuirBtnFechar: true
+      } as Alerta
+    };
+      const dialogRef = this.dialog.open(AlertaComponent, config);
+      this.router.navigate([""]);
+      const cadastro = this.cadastro.getRawValue() as ListaCadastros;
+      this.salvar(cadastro);
     } else {
       alert('Erro ao cadastrar');
     }
@@ -54,7 +61,7 @@ export class CadastroComponent implements OnInit {
 
   private salvar(cadastro: ListaCadastros): void{
       this.cadastroService.salvar(cadastro).subscribe(() =>{
-        alert('SUCESSO');
+        //alert('SUCESSO');
       },
       () => {
         alert('ERRO AO SALVAR');
