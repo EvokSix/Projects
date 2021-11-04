@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AlertaComponent } from 'src/app/shared/componentes/alerta.component';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { ListagemCadastrosComponent } from 'src/listagem-cadastros/listagem-cadastros.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     LoginComponent,
     CadastroComponent,
     TelaInicialComponent,
-    AlertaComponent
+    AlertaComponent,
+    ListagemCadastrosComponent
   ],
   imports: [
     BrowserModule,

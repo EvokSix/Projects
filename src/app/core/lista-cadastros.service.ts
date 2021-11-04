@@ -17,4 +17,9 @@ export class ListaCadastrosService{
     return this.http.post<ListaCadastros>(url, cadastro);
   }
 
+  listar(): Observable<ListaCadastros[]>{
+
+    return this.http.get<ListaCadastros[]>(url);
+  }
+
 }

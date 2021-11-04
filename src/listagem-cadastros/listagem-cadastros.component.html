@@ -1,0 +1,11 @@
+<div>
+  <mat-toolbar class="app-title">Lista de Cadastros</mat-toolbar>
+  <mat-card class="home-card" *ngFor="let cadastro of cadastros">
+    <div mat-card-avatar></div>
+    <mat-card-title>{{cadastro.email}}</mat-card-title>
+    <mat-card-subtitle>{{cadastro.dtNascimento}}</mat-card-subtitle>
+  </mat-card>
+  <button mat-stroked-button type="button" routerLink="/">
+    Voltar
+  </button>
+</div>

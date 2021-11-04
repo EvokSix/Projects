@@ -20,6 +20,13 @@
       "confirmaPassword": "123",
       "dtNascimento": "2021-11-03T03:00:00.000Z",
       "id": 3
+    },
+    {
+      "email": "ab@hotmail.com",
+      "password": "123",
+      "confirmaPassword": "123",
+      "dtNascimento": "2021-11-04T03:00:00.000Z",
+      "id": 4
     }
   ]
 }
